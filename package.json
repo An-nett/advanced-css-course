@@ -1,0 +1,22 @@
+{
+  "name": "advanced-css-course",
+  "version": "1.0.0",
+  "description": "This repo contains starter files and the finished project files for all the projects contained in the course.",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass --watch Natours/starter/scss/main.scss Natours/starter/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/An-nett/advanced-css-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/An-nett/advanced-css-course/issues"
+  },
+  "homepage": "https://github.com/An-nett/advanced-css-course#readme",
+  "devDependencies": {
+    "sass": "^1.45.1"
+  }
+}

@@ -1,3 +1,10 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-text-dark: #777;
+$color-text-light: #fff;
+
 *,
 *::after,
 *::before {
@@ -15,14 +22,19 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: $color-text-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
@@ -48,8 +60,9 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-text-light;
   text-transform: uppercase;
+
   backface-visibility: hidden;
   margin-bottom: 6rem;
 }
@@ -59,6 +72,7 @@ body {
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
+
   animation-name: moveInLeft;
   animation-duration: 1s;
 }
@@ -68,6 +82,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
+
   animation-name: moveInRight;
   animation-duration: 1s;
 }
@@ -77,27 +92,33 @@ body {
     opacity: 0;
     transform: translateX(-10rem);
   }
+
   80% {
     transform: translateX(1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
     transform: translateX(10rem);
   }
+
   80% {
     transform: translateX(-1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -114,7 +135,6 @@ body {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-
 .btn:active {
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -137,11 +157,9 @@ body {
   z-index: -1;
   transition: all 0.4s;
 }
-
 .btn--white::after {
   background-color: #fff;
 }
-
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
@@ -152,14 +170,14 @@ body {
     opacity: 0;
     transform: translateY(3rem);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
-
-/*# sourceMappingURL=style.css.map */
