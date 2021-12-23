@@ -1,0 +1,22 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gap-vertical;
+  }
+
+  @include clearfix;
+
+  [class^='col-'] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gap-gorizontal;
+    }
+  }
+}
+
+.col-1-of-2 {
+  width: calc((100% - #{$gap-gorizontal}) / 2);
+}
