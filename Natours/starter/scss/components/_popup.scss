@@ -9,6 +9,11 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  backdrop-filter: blur(10px);
+
+  @supports (backdrop-filter: blur(10px)) {
+    background-color: rgba($color-black, 0.3);
+  }
 
   &:target {
     opacity: 1;
@@ -31,11 +36,21 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
     transition: all 0.4s 0.1s;
+
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left {
     width: 33.33333%;
     align-self: stretch;
+
+    @include respond(tab-port) {
+      width: 100%;
+      align-self: flex-start;
+      display: flex;
+    }
   }
 
   &__right {
@@ -45,11 +60,19 @@
     justify-content: center;
     align-items: start;
     padding: 3rem 5rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-port) {
+      width: 50%;
+    }
   }
 
   &__text {
