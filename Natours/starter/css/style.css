@@ -52,17 +52,17 @@ $breakpoint argument choices:
 html {
   font-size: 62.5%;
 }
-@media (max-width: 75em) {
+@media only screen and (max-width: 75em) {
   html {
     font-size: 56.25%;
   }
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   html {
     font-size: 50%;
   }
 }
-@media (min-width: 112.5em) {
+@media only screen and (min-width: 112.5em) {
   html {
     font-size: 75%;
   }
@@ -72,10 +72,15 @@ body {
   box-sizing: border-box;
   padding: 3rem;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   body {
     padding: 0;
   }
+}
+
+::selection {
+  background-color: #55c57a;
+  color: #fff;
 }
 
 body {
@@ -99,7 +104,7 @@ body {
   animation-name: moveInLeft;
   animation-duration: 1s;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .heading-primary--main {
     letter-spacing: 1rem;
     font-size: 5rem;
@@ -113,7 +118,7 @@ body {
   animation-name: moveInRight;
   animation-duration: 1s;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .heading-primary--sub {
     letter-spacing: 0.5rem;
   }
@@ -131,12 +136,12 @@ body {
   letter-spacing: 2px;
   transition: all 0.2s;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .heading-secondary {
     font-size: 3rem;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .heading-secondary {
     font-size: 2.5rem;
   }
@@ -166,7 +171,7 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem !important;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .u-margin-bottom-big {
     margin-bottom: 5rem !important;
   }
@@ -179,7 +184,7 @@ body {
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .u-margin-bottom-medium {
     margin-bottom: 3rem !important;
   }
@@ -272,7 +277,7 @@ body {
 .composition {
   position: relative;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .composition {
     display: flex;
   }
@@ -289,7 +294,7 @@ body {
   left: 0;
   top: -2rem;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .composition__photo--p1 {
     top: 0;
     transform: scale(1.2);
@@ -299,7 +304,7 @@ body {
   right: 0;
   top: 2rem;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .composition__photo--p2 {
     top: -1rem;
     transform: scale(1.3);
@@ -310,13 +315,13 @@ body {
   left: 20%;
   top: 10rem;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .composition__photo--p3 {
     top: 1rem;
     transform: scale(1.1);
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .composition__photo {
     width: 33.333%;
     position: relative;
@@ -343,7 +348,7 @@ body {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .feature-box {
     padding: 2rem;
   }
@@ -360,7 +365,7 @@ body {
   background-clip: text;
   color: transparent;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .feature-box {
     margin-bottom: 0;
   }
@@ -484,7 +489,7 @@ body {
   font-size: 6rem;
   font-weight: 100;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
   .card {
     height: auto;
     border-radius: 3px;
@@ -533,13 +538,13 @@ body {
   font-size: 1.6rem;
   transform: skewX(-12deg);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .story {
     width: 100%;
     padding: 4rem 7rem 4rem 9rem;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .story {
     transform: skewX(0);
   }
@@ -548,15 +553,21 @@ body {
   height: 15rem;
   width: 15rem;
   float: left;
-  -webkit-shape-outside: circle(50% at 50% 50%);
-  shape-outside: circle(50% at 50% 50%);
-  -webkit-clip-path: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
   transform: translateX(-3rem) skewX(12deg);
   position: relative;
   overflow: hidden;
+  border-radius: 50%;
 }
-@media (max-width: 37.5em) {
+@supports (clip-path: polygon(0 0)) {
+  .story__shape {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
+}
+@media only screen and (max-width: 37.5em) {
   .story__shape {
     transform: translateX(-3rem) skewX(0);
   }
@@ -569,7 +580,7 @@ body {
 .story__text {
   transform: skewX(12deg);
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .story__text {
     transform: skewX(0);
   }
@@ -613,7 +624,7 @@ body {
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .form__group:not(:last-child) {
     margin-bottom: 1rem;
   }
@@ -631,7 +642,7 @@ body {
   display: block;
   transition: all 0.3s;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .form__input {
     width: 100%;
   }
@@ -664,7 +675,7 @@ body {
   width: 49%;
   display: inline-block;
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .form__radio-group {
     width: 100%;
     margin-bottom: 2rem;
@@ -718,6 +729,12 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+@supports (backdrop-filter: blur(10px)) {
+  .popup {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 .popup:target {
   opacity: 1;
@@ -742,7 +759,7 @@ body {
   transform: translate(-50%, -50%) scale(0.25);
   transition: all 0.4s 0.1s;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .popup__content {
     flex-direction: column-reverse;
   }
@@ -751,7 +768,7 @@ body {
   width: 33.33333%;
   align-self: stretch;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .popup__left {
     width: 100%;
     align-self: flex-start;
@@ -766,7 +783,7 @@ body {
   align-items: start;
   padding: 3rem 5rem;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .popup__right {
     width: 100%;
   }
@@ -775,7 +792,7 @@ body {
   display: block;
   width: 100%;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .popup__img {
     width: 50%;
   }
@@ -816,7 +833,7 @@ body {
 .row-of-3 {
   grid-template-columns: repeat(3, 1fr);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .row-of-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -824,17 +841,17 @@ body {
 .row-of-4 {
   grid-template-columns: repeat(4, 1fr);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .row-of-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .row {
     row-gap: 6rem;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .row {
     grid-template-columns: 1fr;
     max-width: 50rem;
@@ -842,20 +859,25 @@ body {
 }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
-  clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
   position: relative;
 }
-@media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+@supports (clip-path: polygon(0 0)) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
+    height: 95vh;
+  }
+}
+@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (min-width: 125em) {
   .header {
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .header {
     -webkit-clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
     clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
@@ -883,7 +905,7 @@ body {
   font-size: 1.4rem;
   color: #f7f7f7;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .footer {
     padding: 8rem 0;
   }
@@ -892,7 +914,7 @@ body {
   text-align: center;
   margin-bottom: 5rem;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .footer__logo-box {
     margin-bottom: 4rem;
   }
@@ -953,13 +975,13 @@ body {
   text-align: center;
   cursor: pointer;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .navigation__button {
     top: 4rem;
     right: 4rem;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .navigation__button {
     top: 3rem;
     right: 3rem;
@@ -976,13 +998,13 @@ body {
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .navigation__background {
     top: 4.5rem;
     right: 4.5rem;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .navigation__background {
     top: 3.5rem;
     right: 3.5rem;
@@ -1085,7 +1107,7 @@ body {
   padding: 25rem 5rem;
   margin-top: -20vh;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .section-about {
     padding: 20rem 5rem;
   }
@@ -1101,7 +1123,7 @@ body {
 .section-features > * {
   transform: skewY(7deg);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .section-features {
     padding: 10rem 5rem;
   }
@@ -1113,7 +1135,7 @@ body {
   background-color: #f7f7f7;
   background-size: cover;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .section-tours {
     padding: 20rem 5rem 10rem;
   }
@@ -1123,7 +1145,7 @@ body {
   padding: 15rem 5rem;
   position: relative;
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .section-stories {
     padding: 10rem 5rem;
   }
@@ -1133,7 +1155,7 @@ body {
   padding: 15rem 5rem;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
 }
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .section-book {
     padding: 10rem 5rem;
   }
@@ -1149,23 +1171,23 @@ body {
   width: 50%;
   padding: 6rem;
 }
-@media (max-width: 75em) {
+@media only screen and (max-width: 75em) {
   .book__form {
     width: 70%;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .book__form {
     width: 100%;
   }
 }
-@media (max-width: 75em) {
+@media only screen and (max-width: 75em) {
   .book {
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url("../img/nat-10.jpg");
     background-size: cover;
   }
 }
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .book {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url("../img/nat-10.jpg");
     background-size: cover;
