@@ -11,6 +11,10 @@
   -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
   clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
   position: relative;
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+  }
 
   &__logo-box {
     position: absolute;

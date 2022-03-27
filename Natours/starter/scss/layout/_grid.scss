@@ -10,8 +10,24 @@
   }
   &-of-3 {
     grid-template-columns: repeat(3, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   &-of-4 {
     grid-template-columns: repeat(4, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include respond(tab-port) {
+    row-gap: $gap-vertical-small;
+  }
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    max-width: 50rem;
   }
 }
