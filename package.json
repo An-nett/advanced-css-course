@@ -4,7 +4,7 @@
   "description": "Projects for advanced-css-course",
   "main": "index.js",
   "scripts": {
-    "compile-sass-natours": "sass --watch Natours/scss/main.scss Natours/css/style.css",
+    "compile-sass-natours": "sass Natours/scss/main.scss Natours/css/style.css",
     "compile-sass-trillo": "sass --watch Trillo/scss/main.scss Trillo/css/style.css"
   },
   "repository": {
