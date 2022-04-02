@@ -1,0 +1,17 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+  display: grid;
+  gap: $gap-gorizontal;
+  row-gap: $gap-vertical;
+
+  &-of-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  &-of-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &-of-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

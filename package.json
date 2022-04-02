@@ -1,10 +1,11 @@
 {
   "name": "advanced-css-course",
   "version": "1.0.0",
-  "description": "This repo contains starter files and the finished project files for all the projects contained in the course.",
+  "description": "Projects for advanced-css-course",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "sass --watch Natours/starter/scss/main.scss Natours/starter/css/style.css"
+    "compile-sass-natours": "sass Natours/scss/main.scss Natours/css/style.css",
+    "compile-sass-trillo": "sass --watch Trillo/scss/main.scss Trillo/css/style.css"
   },
   "repository": {
     "type": "git",
