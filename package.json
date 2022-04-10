@@ -2,11 +2,10 @@
   "name": "advanced-css-course",
   "version": "1.0.0",
   "description": "Projects for advanced-css-course",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "compile-sass-natours": "sass Natours/scss/main.scss Natours/css/style.css",
-    "compile-sass-trillo": "sass Trillo/scss/main.scss Trillo/css/style.css",
-    "compile-sass-nexter": "sass Nexter/scss/main.scss Nexter/css/style.css"
+    "build": "webpack",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,15 @@
   },
   "homepage": "https://github.com/An-nett/advanced-css-course#readme",
   "devDependencies": {
-    "sass": "^1.45.1"
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.45.1",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   }
 }
